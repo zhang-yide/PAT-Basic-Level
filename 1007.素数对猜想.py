@@ -1,15 +1,21 @@
-import time
+"""
+让我们定义dn为：dn = pn+1 − pn，其中pi是第i个素数。显然有d1 = 1，且对于n>1有dn是偶数。
+“素数对猜想”认为“存在无穷多对相邻且差为2的素数”。
+
+现给定任意正整数 N(<10^5) ，请计算不超过N的满足猜想的素数对的个数。
+
+输入格式:
+输入在一行给出正整数N。
+
+输出格式:
+在一行中输出不超过N的满足猜想的素数对的个数。
+
+输入样例:
+20
+输出样例:
+4
+"""
 import math
-
-
-def timer(func):
-    def deco(*args, **kwargs):
-        start_time = time.time()
-        func(*args, **kwargs)
-        stop_time = time.time()
-        duration = stop_time - start_time
-        print('用时:', duration * 3, 'ms')
-    return deco
 
 
 def prime(n: int):
@@ -36,8 +42,7 @@ def twin_prime(n: int):
     return False
 
 
-@timer
-def main():
+if __name__ == '__main__':
     n = int(input())
     count = 0
     while n > 2:
@@ -45,7 +50,3 @@ def main():
             count += 1
         n -= 1
     print(count)
-
-
-if __name__ == '__main__':
-    main()
