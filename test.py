@@ -12,10 +12,8 @@ def timer(func):
     return deco
 
 
-def list_move(l: list, N: int, M: int):
-    if N == 1 or M == 0 or M == N:
-        return l
-    return l[-(M % N):] + l[:N - (M % N)]
+def test(l: list):
+    return
 
 
 @timer
