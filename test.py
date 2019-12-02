@@ -12,40 +12,23 @@ def timer(func):
     return deco
 
 
-def prime(n: int):
-    if n == 2 or n == 3:
-        return True
-    if n % 6 != 1 and n % 6 != 5:
-        return False
-    i = 5
-    tmp = int(math.sqrt(n)+1)
-    while i <= tmp:
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-        else:
-            i += 6
-    return True
-
-
-def twin_prime(n: int):
-    if n <= 3:
-        return False
-    if prime(n):
-        if prime(n-2):
-            return True
-    return False
+def list_move(l: list, N: int, M: int):
+    if N == 1 or M == 0 or M == N:
+        return l
+    return l[-(M % N):] + l[:N - (M % N)]
 
 
 @timer
 def main():
-    n = int(input())
-    count = 0
-    while n > 2:
-        if twin_prime(n):
-            count += 1
-        n -= 1
-    print(count)
+    line1 = str(input())
+    list1 = line1.split()
+    N = int(list1[0])
+    M = int(list1[1])
+    line2 = str(input())
+    list2 = line2.split()
+    print(' '.join(list_move(list2, N, M)))
 
 
 if __name__ == '__main__':
-    main()
+    while True:
+        main()
