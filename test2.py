@@ -1,20 +1,7 @@
-import functools
+import logging
+logging.basicConfig(level=logging.INFO)
 
-
-def log(func):
-    @functools.wraps(func)
-    def deco(*arg, **kwarg):
-        print('call %s():' % func.__name__)
-        return func(*arg, **kwarg)
-    return deco
-
-
-@ log
-def now():
-    print('2019-12-25')
-    print(int('10110', base=2))
-
-
-if __name__ == '__main__':
-    now()
-    print(now.__name__)
+s = '0'
+n = int(s)
+logging.info('n = %d' % n)
+print(10 / n)
